@@ -56,12 +56,12 @@
 
           klon.querySelector("h2").textContent = person.fornavn + " " + person.efternavn;
           
-          klon.querySelector(".titel").textContent += person.titel;
+          klon.querySelector(".titel").textContent += " " + person.titel;
           klon.querySelector("img").src = "faces/" + person.billede;
-          klon.querySelector(".fødselsdag").textContent += person.fødeselsdag;
-          klon.querySelector("email").textContent += person.email;
-          klon.querySelector("hobby").textContent += person.hobby;
-          klon.querySelector("troende").textContent += person.troende;
+          klon.querySelector(".fødselsdag").textContent += " " + person.fødeselsdag;
+          klon.querySelector(".email").textContent += " " + person.email;
+          klon.querySelector(".hobby").textContent += " " + person.hobby;
+          klon.querySelector(".troende").textContent += " " + person.troende;
           
 
           console.log(klon);
