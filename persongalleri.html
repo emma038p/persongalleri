@@ -13,8 +13,12 @@
     <template>
       <article>
         <h2>navn:</h2>
+        <p class="titel">Titel:</p>
         <img src="" alt="" />
-        <p>Hobby:</p>
+        <p class="fødselsdag">Fødselsdag:</p>
+        <p class="email">E-mail:</p>
+        <p class="hobby">Hobby:</p>
+        <p class="troende">Troende:</p>
       </article>
     </template>
 
@@ -37,28 +41,36 @@
         container = document.querySelector("section");
         temp = document.querySelector("template").content;
         console.log(temp);
-        hentdata();
-      }
+        
 
       async function hentdata() {
         const response = await fetch(url, options);
         people = await response.json();
-        visPeople();
+        vis(people);
       }
 
-      function visPeople() {
+      function vis(people) {
         people.forEach((person) => {
           console.log(person);
           let klon = temp.cloneNode(true);
-          klon.querySelector("h2").textContent = person.fornavn;
-          klon.querySelector("p").textContent += person.hobby;
-          klon.querySelector("p").textContent;
+
+          klon.querySelector("h2").textContent = person.fornavn + " " + person.efternavn;
+          
+          klon.querySelector(".titel").textContent += person.titel;
           klon.querySelector("img").src = "faces/" + person.billede;
+          klon.querySelector(".fødselsdag").textContent += person.fødeselsdag;
+          klon.querySelector("email").textContent += person.email;
+          klon.querySelector("hobby").textContent += person.hobby;
+          klon.querySelector("troende").textContent += person.troende;
+          
 
           console.log(klon);
           container.appendChild(klon);
         });
       }
+      hentdata();
+      }
+
     </script>
   </body>
 </html>
